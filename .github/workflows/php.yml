@@ -39,6 +39,8 @@ jobs:
       working-directory: ./my_laravel_app
       run: |
         echo "# my_laravel_app" >> README.md
+        git config --global user.email "hsnrathore@gmail.com"
+        git config --global user.name "Hassan"
         git init
         git add . --all
         git commit -m "first commit"
