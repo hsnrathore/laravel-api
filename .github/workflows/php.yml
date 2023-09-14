@@ -33,8 +33,19 @@ jobs:
       run: composer install --prefer-dist --no-progress
 
     - name: Create A new Project
-      run: composer create-project joselfonseca/laravel-api my_laravel_app && ls -l && cd my_laravel_app && ls -l
+      run: composer create-project joselfonseca/laravel-api my_laravel_app
 
+    - name: Push directory to another repository
+      uses: cpina/github-action-push-to-another-repository@v1.7.2
+      env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+          source-directory: 'my_laravel_app'
+          destination-github-username: 'hsnrathore'
+          destination-repository-name: 'my_laravel_app'
+          user-email: hsnrathore@gmail.com
+          target-branch: main
+            
     #Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     #Docs: https://getcomposer.org/doc/articles/scripts.md
 
