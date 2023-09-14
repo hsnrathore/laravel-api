@@ -33,7 +33,7 @@ jobs:
       run: composer install --prefer-dist --no-progress
 
     - name: Create A new Project
-      run: composer create-project joselfonseca/laravel-api my_laravel_app
+      run: composer create-project joselfonseca/laravel-api my_laravel_app && touch my_laravel_app/pop
 
     - name: Push directory to another repository
       env:
