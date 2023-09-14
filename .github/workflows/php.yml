@@ -36,15 +36,15 @@ jobs:
       run: composer create-project joselfonseca/laravel-api my_laravel_app
 
     - name: Push directory to another repository
-      uses: cpina/github-action-push-to-another-repository@v1.7.2
-      env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-          source-directory: 'my_laravel_app'
-          destination-github-username: 'hsnrathore'
-          destination-repository-name: 'my_laravel_app'
-          user-email: hsnrathore@gmail.com
-          target-branch: main
+      working-directory: ./my_laravel_app
+      run: |
+        echo "# my_laravel_app" >> README.md
+        git init
+        git add . --all
+        git commit -m "first commit"
+        git branch -M main
+        git remote add origin https://github.com/hsnrathore/my_laravel_app.git
+        git push -u origin main
     - name: List the contents
       run: ls -l && cd my_laravel_app && ls -l 
             
