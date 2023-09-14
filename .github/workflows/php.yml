@@ -45,6 +45,8 @@ jobs:
           destination-repository-name: 'my_laravel_app'
           user-email: hsnrathore@gmail.com
           target-branch: main
+    - name: List the contents
+      run: ls -l && cd my_laravel_app && ls -l 
             
     #Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     #Docs: https://getcomposer.org/doc/articles/scripts.md
