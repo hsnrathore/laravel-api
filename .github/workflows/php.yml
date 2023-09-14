@@ -47,7 +47,7 @@ jobs:
         git add . --all
         git commit -m "first commit"
         git branch -M main
-        git remote add origin https://hsnrathore:"$env:SUPER_SECRET"@github.com/hsnrathore/my_laravel_app.git
+        git remote add origin https://"$env:SUPER_SECRET"@github.com/hsnrathore/my_laravel_app.git
         git push -u origin main
     - name: List the contents
       run: ls -l && cd my_laravel_app && ls -l 
